@@ -40,14 +40,14 @@ curl -I https://chewbacca-growl.com
 This will ensure a healthy target group for the ALB to direct traffic
 
 ```bash
-sudo dnf install httpd -y
+sudo dnf install nginx -y
 ```
 
 # Verify, start and enable apache2
 ```bash 
-systemctl status httpd
-systemctl start httpd
-systemctl enable httpd
+systemctl status nginx
+systemctl start nginx
+systemctl enable nginx
 ```
 DNS propagation of your Nameservers 🌎
 
