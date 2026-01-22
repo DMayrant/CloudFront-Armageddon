@@ -1,6 +1,6 @@
 # AWS CloudFront 🌏
 
-AWS Cloudfront is a fully managed service that allows globally cached and content delivery, to reduce latency and increase performance for users. WAF can enabled as a security backend to CloudFront, WAF enforcement begins at the cloudfront edge level and protect against Distributed Denial of Service (DDOS attacks). An ALB load balancer receives traffic from CloudFront and is directed to target groups in the private subnet. An ALB cannot be reached even if you have the DNS, you can only access it through CloudFront
+Route 53 provides DNS resoultion first so your brower is aware of Cloudfront. AWS Cloudfront is a fully managed service that allows globally cached and content delivery, to reduce latency and increase performance for users. WAF can enabled as a security backend to CloudFront, WAF enforcement begins at the cloudfront edge level and protect against Distributed Denial of Service (DDOS attacks). An ALB load balancer receives traffic from CloudFront and is directed to target groups in the private subnet. An ALB cannot be reached even if you have the DNS, you can only access it through CloudFront
 
 # SSL/TLS Encryption and TLS termination 🔒 and Amazon Certificate Manager (ACM) 🥇
 
