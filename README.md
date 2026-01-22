@@ -39,6 +39,8 @@ curl -I https://chewbacca-growl.com
 
 This will ensure a healthy target group for the ALB to direct traffic
 
+🚨 Create endpoints to AWS Systems Manager to reduce attack surface to securly access your server without using SSH port 22 or a bastion host. Or avoid a NAT gateway overuse by saving money ⚠️
+
 ```bash
 sudo dnf install nginx -y
 ```
