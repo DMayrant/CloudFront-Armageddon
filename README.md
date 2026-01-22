@@ -54,3 +54,4 @@ DNS propagation of your Nameservers 🌎
 ```bash
 dig NS chewbacca-growl.com +short
 ```
+![image alt](https://github.com/DMayrant/CloudFront-Armageddon/blob/main/Screenshot%202569-01-22%20at%2000.06.04.png?raw=true)
