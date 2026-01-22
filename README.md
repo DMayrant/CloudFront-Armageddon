@@ -41,6 +41,8 @@ This will ensure a healthy target group for the ALB to direct traffic
 
 🚨 Create endpoints to AWS Systems Manager to reduce attack surface to securly access your server without using SSH port 22 or a bastion host. Or avoid a NAT gateway overuse by saving money ⚠️
 
+![image alt](https://github.com/DMayrant/CloudFront-Armageddon/blob/main/nginx.png?raw=true)
+
 ```bash
 sudo dnf install nginx -y
 ```
