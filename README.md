@@ -4,9 +4,7 @@ A client sends a DNS query to Route 53 for DNS resoultion for CloudFront distrib
 
 # SSL/TLS Encryption and TLS termination 🔒 and Amazon Certificate Manager (ACM) 🥇
 
-Amazon Certficate Manager (ACM) is a fully managed service that provisions and manages SSL/TLS certificates placed on CloudFront and ALB ACM for the two TLS termination sessions to occur before traffic reaches your network. ACM removes the overhead of manually replacing expired certificates. AWS edge or load balancing uses those certs for TLS termination. TLS handshake happens at AWS endpoint and is terminated by CloudFront, Elastic Load Balancing (ALB, NLB) and API Gateway. 
-
-HTTPS traffic flow from the public internet and reaches the ALB. The ALB performs TLS termination (decryption) and traffic forwarded to your target group in your private subnet over HTTP, you must have a Nginx or Apache2 server listening on port 80 behind your TLS terminating proxy. The ALB is configured with AWS WAF for OWASP top 10 compliance such as SQL injection, XML external entities and insecure deserialization. AWS ACM is also configured with the ALB for the issuance, validation and management of SSL/TLS certificates. 
+Amazon Certficate Manager (ACM) is a fully managed service that provisions and manages SSL/TLS certificates placed on CloudFront and ALB ACM for the two TLS termination sessions to occur before traffic reaches your network. ACM removes the overhead of manually replacing expired certificates. AWS edge or load balancing uses those certs for TLS termination. HTTP and traffic forwarded to your target group in your private subnet over HTTP, you must have a Nginx or Apache2 server installed and listening on port 80 behind your TLS terminating proxy to have a healthy target group.
 
 Internet Protocols than can use SSL/TLS encryption 
 
