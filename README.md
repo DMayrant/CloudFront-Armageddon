@@ -1,10 +1,10 @@
-# AWS CloudFront 🌏
+# AWS CloudFront and Route 53 Network traffic 🌏
 
-Route 53 provides DNS resoultion first so your brower is aware of Cloudfront. AWS Cloudfront is a fully managed service that allows globally cached and content delivery, to reduce latency and increase performance for users. WAF can enabled as a security backend to CloudFront, WAF enforcement begins at the cloudfront edge level and protect against Distributed Denial of Service (DDOS attacks). An ALB load balancer receives traffic from CloudFront and is directed to target groups in the private subnet. An ALB cannot be reached even if you have the DNS, you can only access it through CloudFront
+A client sends a DNS query to Route 53 for DNS resoultion for CloudFront distribution. This allows client browser and CloudFront to establish a HTTPS connection after the TLS handshake. WAF enforcement and the first TLS termination session occurs at Cloudfront edge before traffic reaches its origin. Traffic is then sent to ALB for another TLS termination session before traffic is directed to your network backend. Cloudfront is resposible for global content delivery and caching to reducing latency to users. 
 
 # SSL/TLS Encryption and TLS termination 🔒 and Amazon Certificate Manager (ACM) 🥇
 
-ACM is managed service by AWS for certificate management and placing SSL/TLS certificate on ingress traffic coming into your network. ACM removes the overhead of manually replacing expired certificates. AWS edge or load balancing uses those certs for TLS termination. TLS handshake happens at AWS endpoint and is terminated by CloudFront, Elastic Load Balancing (ALB, NLB) and API Gateway. 
+Amazon Certficate Manager (ACM) is a fully managed service that provisions and manages SSL/TLS certificates placed on CloudFront and ALB ACM for the two TLS termination sessions to occur before traffic reaches your network. ACM removes the overhead of manually replacing expired certificates. AWS edge or load balancing uses those certs for TLS termination. TLS handshake happens at AWS endpoint and is terminated by CloudFront, Elastic Load Balancing (ALB, NLB) and API Gateway. 
 
 HTTPS traffic flow from the public internet and reaches the ALB. The ALB performs TLS termination (decryption) and traffic forwarded to your target group in your private subnet over HTTP, you must have a Nginx or Apache2 server listening on port 80 behind your TLS terminating proxy. The ALB is configured with AWS WAF for OWASP top 10 compliance such as SQL injection, XML external entities and insecure deserialization. AWS ACM is also configured with the ALB for the issuance, validation and management of SSL/TLS certificates. 
 
